@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HealthController : MonoBehaviour {
     [SerializeField] int maxLives = 3;//Vida maxima
@@ -15,6 +16,7 @@ public class HealthController : MonoBehaviour {
         if (lives <= 0) {
             Destroy(gameObject);
         }
+        
     }
     public int getLive()
     {

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4272525818222911347}
   - component: {fileID: 6645433439728963711}
   - component: {fileID: 6809881249582478373}
+  - component: {fileID: 8424237601745955082}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -163,3 +164,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLives: 3
   lives: 3
+--- !u!114 &8424237601745955082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921631466409894995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbd2d23cec0dd8349a4b9d8a3ec5d4ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
