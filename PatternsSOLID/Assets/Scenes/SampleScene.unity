@@ -588,6 +588,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyInstance: {fileID: 1746000215}
   healthController: {fileID: 1746000216}
+  coinController: {fileID: 1904826972}
   coin: {fileID: 1904826971}
 --- !u!1 &519420028
 GameObject:
@@ -929,7 +930,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6908634657382722401, guid: b72eec74da1495e46bddc9a948b70d2b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.3399997
+      value: -3.16
       objectReference: {fileID: 0}
     - target: {fileID: 6908634657382722401, guid: b72eec74da1495e46bddc9a948b70d2b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2041,6 +2042,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 892843045059019694, guid: 3cb0c7eb71f2dbd4f92b886a453e8a58, type: 3}
   m_PrefabInstance: {fileID: 2258287094573300902}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1904826972 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6489196217938569564, guid: 3cb0c7eb71f2dbd4f92b886a453e8a58, type: 3}
+  m_PrefabInstance: {fileID: 2258287094573300902}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904826971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 747ec47c8026de148bfd5e0541aec1d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1934067681
 GameObject:
   m_ObjectHideFlags: 0
