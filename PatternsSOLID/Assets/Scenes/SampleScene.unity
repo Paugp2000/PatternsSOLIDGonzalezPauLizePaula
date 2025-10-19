@@ -590,6 +590,21 @@ MonoBehaviour:
   healthController: {fileID: 1746000216}
   coinController: {fileID: 1904826972}
   coin: {fileID: 1904826971}
+  enemiesArch:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1170393122}
+        m_TargetAssemblyTypeName: ArchiementController, Assembly-CSharp
+        m_MethodName: playerEnemiesArch
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,6 +1202,64 @@ Transform:
   m_Children: []
   m_Father: {fileID: 412682481}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1170393121
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1170393123}
+  - component: {fileID: 1170393122}
+  m_Layer: 0
+  m_Name: GameArchivement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1170393122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170393121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd7689ef51de3654484e2ef7d4de638e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1175754826}
+  gameController: {fileID: 486460748}
+  notificationManager: {fileID: 1600600530}
+--- !u!4 &1170393123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170393121}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.9756935, y: 0.67715746, z: -0.08535632}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1175754826 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+  m_PrefabInstance: {fileID: 4365487281684292875}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3cf14af722807478e2d1ef31d6e851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1237088382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1748,6 +1821,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab00c29e04f4ea849a369106f1cfeb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerJump: {fileID: 1175754826}
+  coinCounter: {fileID: 1351105956}
   textToShow: {fileID: 1524414599}
   canvasGroup: {fileID: 1286076777}
   defaultNotificationFadeInDuration: 0.5
@@ -2182,13 +2257,33 @@ PrefabInstance:
       propertyPath: enemy
       value: 
       objectReference: {fileID: 1746000215}
+    - target: {fileID: 6489196217938569564, guid: 3cb0c7eb71f2dbd4f92b886a453e8a58, type: 3}
+      propertyPath: addCoinToHUD.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6489196217938569564, guid: 3cb0c7eb71f2dbd4f92b886a453e8a58, type: 3}
+      propertyPath: addCoinToHUD.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1600600530}
+    - target: {fileID: 6489196217938569564, guid: 3cb0c7eb71f2dbd4f92b886a453e8a58, type: 3}
+      propertyPath: addCoinToHUD.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: addCoinToHUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 6489196217938569564, guid: 3cb0c7eb71f2dbd4f92b886a453e8a58, type: 3}
+      propertyPath: addCoinToHUD.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NotificationManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6489196217938569564, guid: 3cb0c7eb71f2dbd4f92b886a453e8a58, type: 3}
+      propertyPath: addCoinToHUD.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8933675127680999207, guid: 3cb0c7eb71f2dbd4f92b886a453e8a58, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -14.05
       objectReference: {fileID: 0}
     - target: {fileID: 8933675127680999207, guid: 3cb0c7eb71f2dbd4f92b886a453e8a58, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.3
+      value: -1.81
       objectReference: {fileID: 0}
     - target: {fileID: 8933675127680999207, guid: 3cb0c7eb71f2dbd4f92b886a453e8a58, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2239,6 +2334,94 @@ PrefabInstance:
       propertyPath: notificationManager
       value: 
       objectReference: {fileID: 1600600530}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: coyoteJump.fallMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: coinsArch.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: jumpsArch.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: addCoinToHUD.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: coinsArch.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: jumpsArch.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: coinsArch.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1170393122}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: jumpsArch.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1170393122}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: addCoinToHUD.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: addCoinToHUD.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1600600530}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: coinsArch.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: jumpsArch.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: coinsArch.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: playerMonedasArch
+      objectReference: {fileID: 0}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: jumpsArch.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: playerSaltosArch
+      objectReference: {fileID: 0}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: addCoinToHUD.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: addCoinToHUD.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: addCoinToHUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: coinsArch.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ArchiementController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: jumpsArch.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ArchiementController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: addCoinToHUD.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: NotificationManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: coinsArch.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: jumpsArch.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 758556582553769020, guid: 2c82067e717999545809d5fb71988116, type: 3}
+      propertyPath: addCoinToHUD.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1750178759918722708, guid: 2c82067e717999545809d5fb71988116, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2293,6 +2476,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 486460747}
+  - {fileID: 1170393123}
   - {fileID: 519420032}
   - {fileID: 713153838}
   - {fileID: 1715336611}

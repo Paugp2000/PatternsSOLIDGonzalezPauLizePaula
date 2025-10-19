@@ -4,6 +4,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class NotificationManager : MonoBehaviour {
+    public PlayerController playerJump;
+    int coinCount;
     public class Notification {
         public string message;//Text del missatge
         public float duration;//Duracio del misstage
@@ -22,7 +24,7 @@ public class NotificationManager : MonoBehaviour {
     public Queue<Notification> notificationQueue = new Queue<Notification>(); //Declara una cua (queue) que contindrà objectes del tipus Notification. Una cua és una estructura de dades FIFO (First In, First Out), on el primer element que entra és el primer que surt.
 
 
-
+    [SerializeField] TMPro.TextMeshProUGUI coinCounter;   
     [SerializeField] TMPro.TextMeshProUGUI textToShow;//Text que mostra en la notificacio
     [SerializeField] CanvasGroup canvasGroup;
     [SerializeField] float defaultNotificationFadeInDuration = 0.5f; //Configuren la durada de l’animació d’entrada i sortida d’una notificació
@@ -48,7 +50,7 @@ public class NotificationManager : MonoBehaviour {
         if (currentNotification == null) {
             currentNotification = notificationQueue.Dequeue();
             StartCoroutine(_InitializeNewNotification(currentNotification));
-        }//Gestiona la visualització de notificacions en cua, assegurant que només s’inicia una nova notificació si no n’hi ha cap activa.
+        }//Gestiona la visualització de notificacions en cua, assegurant que només s’inicia una nova notificació si no n’hi ha cap activa
 
     }
 
@@ -84,6 +86,15 @@ public class NotificationManager : MonoBehaviour {
         }
         timeRemainingForNextNotification = timeBetweenNotifications;
         currentNotification = null;
+    }
+    public void Start()
+    {
+        coinCount = playerJump.getCoins();
+        coinCounter.text = coinCount.ToString();    
+    }
+    public void addCoinToHUD()
+    {
+        coinCounter.text = playerJump.getCoins().ToString();    
     }
 
 }

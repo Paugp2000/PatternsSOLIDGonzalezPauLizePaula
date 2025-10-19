@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour {
@@ -8,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] NotificationManager notificationManager;
     private Rigidbody2D rb;
     int coins = 0;
+    int numJumps = 0;
 
     [Header("Ground Check")]
     public Transform groundCheck;
@@ -30,6 +32,10 @@ public class PlayerController : MonoBehaviour {
     float horizontalVelocity;
     float lastHorizontal = 1.0f;
 
+    public UnityEvent addCoinToHUD;
+    public UnityEvent jumpsArch;
+    public UnityEvent coinsArch;
+
     void Awake() {
         rb = GetComponent<Rigidbody2D>();
         jumpAction.performed += OnJump;
@@ -48,15 +54,15 @@ public class PlayerController : MonoBehaviour {
         shootAction.Disable();
     }
 
-    void Update() {
+    void Update()
+    {
         // Ground check
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         coyoteJump.UpdateJump(rb, isGrounded, jumpInput);
         rb.velocity = new Vector2(horizontalVelocity, rb.velocity.y);
-    }
-
-    void FixedUpdate() {
         coyoteJump.FixedUpdateJump(rb, isGrounded, jumpInput);
+        checkCoins();
+        checkJumps();
     }
     void OnJump(InputAction.CallbackContext ctx) {
         if (ctx.ReadValue<float>() == 1) {
@@ -64,6 +70,7 @@ public class PlayerController : MonoBehaviour {
         } else {
             jumpInput = false;
         }
+        numJumps++;
     }
 
     void OnMovement(InputAction.CallbackContext ctx) {
@@ -87,6 +94,25 @@ public class PlayerController : MonoBehaviour {
     public void PickUpCoin() {
         coins++;
         notificationManager.AddNotification("Player now has " + coins + " coin" + (coins > 1 ? "s" : ""), 1.5f);
+        addCoinToHUD.Invoke();
+    }
+    public int getCoins()
+    {
+        return coins;
+    }
+    public void checkJumps()
+    {
+        if (numJumps == 10)
+        {
+            jumpsArch.Invoke();
+        }
+    }
+    public void checkCoins()
+    {
+        if (coins == 5)
+        {
+            coinsArch.Invoke();
+        }
     }
 
 
@@ -95,7 +121,7 @@ public class PlayerController : MonoBehaviour {
 [System.Serializable]
 public class CoyoteJump {
     public float jumpForce = 14f;
-    public float fallMultiplier = 2.5f;
+    public float fallMultiplier = 1f;
     public float lowJumpMultiplier = 2f;
     public float coyoteTime = 0.1f; // Time after leaving ground where jump is still allowed
     public float jumpBufferTime = 0.1f; // Buffer time for jump input

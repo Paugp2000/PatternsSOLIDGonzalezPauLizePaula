@@ -11,7 +11,6 @@ public class Enemy : MonoBehaviour
     public  HealthController healthController;
     private void Start()
     {
-
         enemies = new List<GameObject>();
         GameObject clon;
         for (int i = 0; i < poolSize; i++)

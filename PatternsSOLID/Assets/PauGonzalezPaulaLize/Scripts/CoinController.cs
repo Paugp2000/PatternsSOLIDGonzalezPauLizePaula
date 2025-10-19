@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CoinController : MonoBehaviour {
     /// <summary>
@@ -15,8 +17,17 @@ public class CoinController : MonoBehaviour {
         }
     }
     public GameObject CreateCoin(Vector3 position)
+    {
+        if (coin == null)
         {
-        GameObject coinPrefab = coin;
-            return GameObject.Instantiate(coinPrefab, position, Quaternion.identity);
+            Debug.LogWarning("El prefab de moneda es nulo. No se pudo crear la moneda.");
+            return null;
         }
+        else
+        {
+            Debug.Log("Creacion de moneda");
+            return Instantiate(coin, position, Quaternion.identity);
+        }
+      
+    }
 }

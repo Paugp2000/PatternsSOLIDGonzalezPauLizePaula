@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,6 +13,7 @@ public class GameController : MonoBehaviour
     public CoinController coinController;
     public GameObject coin;
     private static GameController gameController;
+    public UnityEvent enemiesArch;
     public static GameController instance
     {
         get { return RequestInstance(); }
@@ -53,5 +55,16 @@ public class GameController : MonoBehaviour
             coinController.CreateCoin(enemyInstance.returnList()[enemyCount-2].transform.position);
         }
        
+    }
+    public void checkEnemyDeaths()
+    {
+        if (enemyCount == 3)
+        {
+            enemiesArch.Invoke(); 
+        }
+    }
+    private void Update()
+    {
+        checkEnemyDeaths();
     }
 }
