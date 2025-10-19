@@ -16,10 +16,14 @@ public class Enemy : MonoBehaviour
         GameObject clon;
         for (int i = 0; i < poolSize; i++)
         {
-            clon = Instantiate(enemy, getRandomLocation(), Quaternion.identity);
+            clon = enemyFactory();
             clon.SetActive(false);
             enemies.Add(clon);
         }
+    }
+    public GameObject enemyFactory()
+    {
+        return GameObject.Instantiate(enemy, getRandomLocation(), Quaternion.identity);
     }
     public Vector3 getRandomLocation()
     {

@@ -9,7 +9,31 @@ public class GameController : MonoBehaviour
     public Enemy enemyInstance;
     protected List<GameObject> enemyList;
     public HealthController healthController;
+    public CoinController coinController;
     public GameObject coin;
+    private static GameController gameController;
+    public static GameController instance
+    {
+        get { return RequestInstance(); }
+    }
+    private static GameController RequestInstance()
+    {
+        if (gameController == null)
+        {
+            GameObject gameControllerObject = new GameObject("GameController");
+            gameController = gameControllerObject.AddComponent<GameController>();
+        }
+        return gameController;
+    }
+    private void Awake()
+    {
+        if (gameController == null)
+        {
+            gameController = this;
+        }else if(gameController != this){
+            Destroy(gameController.gameObject);
+        }
+    }
     public void instantiateEnemy()
     {
         enemyList = enemyInstance.returnList();
@@ -19,6 +43,15 @@ public class GameController : MonoBehaviour
     }
     public void instanciateCoin()
     {
-        Instantiate(coin, enemyList[enemyCount-1].transform.position, Quaternion.identity);
+        Vector3 firstEnemyPosition = new Vector3 (2.89f, -3.16f, 0f);
+        if (enemyCount-2 < 0)
+        {
+            coinController.CreateCoin(firstEnemyPosition);
+        }
+        else
+        {
+            coinController.CreateCoin(enemyInstance.returnList()[enemyCount-2].transform.position);
+        }
+       
     }
 }
